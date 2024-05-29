@@ -5,7 +5,7 @@
 trigger:
  paths:
    include:
-     - manifests/*
+     - revhire-user-service/*
 
 resources:
 - repo: self
@@ -43,7 +43,7 @@ stages:
         tags: |
           $(tag)
 
-    - upload: manifests
+    - upload: revhire-user-service/manifests
       artifact: manifests
 
 - stage: Deploy
