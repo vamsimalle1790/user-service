@@ -43,7 +43,7 @@ stages:
         tags: |
           $(tag)
 
-    - upload: revhire-user-service/manifests
+    - upload: manifests
       artifact: manifests
 
 - stage: Deploy
@@ -72,8 +72,8 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/revhire-user-service/manifests/deployment.yml
-                $(Pipeline.Workspace)/revhire-user-service/manifests/service.yml
+                $(Pipeline.Workspace)/manifests/deployment.yml
+                $(Pipeline.Workspace)/manifests/service.yml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
