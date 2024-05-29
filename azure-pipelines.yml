@@ -43,7 +43,7 @@ stages:
         tags: |
           $(tag)
 
-    - upload: revhire-user-service/manifests
+    - upload: manifests
       artifact: manifests
 
 - stage: Deploy
