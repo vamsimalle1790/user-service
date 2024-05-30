@@ -32,7 +32,7 @@ private final ApplicationService applicationService;
 	
 	@PostMapping(path = "application/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public String createApplication(@RequestBody ApplicationRequest applicationRequest) {
+	public ApplicationResponse createApplication(@RequestBody ApplicationRequest applicationRequest) {
 
 		try {
 			
