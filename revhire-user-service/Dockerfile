@@ -7,6 +7,6 @@ RUN mvn clean package -DskipTests
 
 # Runtime stage
 FROM openjdk:17
-COPY --from=build /home/app/target/*.jar revhire-user-service.jar
-EXPOSE 8082
-ENTRYPOINT ["java", "-jar", "/revhire-user-service.jar"]
+COPY --from=build /home/app/target/*.jar revhire-service.jar
+EXPOSE 8081
+ENTRYPOINT ["java", "-jar", "/revhire-service.jar"]
