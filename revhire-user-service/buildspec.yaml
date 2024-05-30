@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Install Phase - if you need additional package, add it in this stage"
+      - echo "Install Phase - if you need additional package, add it in this stage "
   pre_build:
       commands:
         # This Docker Image tag will have date, time and Codecommit version

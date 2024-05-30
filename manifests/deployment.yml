@@ -1,19 +1,39 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: userservice 
+  name: revhire-user
+  namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: userservice
+      app: revhire-user
   template:
     metadata:
       labels:
-        app: userservice 
+        app : revhire-user
     spec:
       containers:
-        - name: userservice 
-          image: myappreg123.azurecr.io/userservice
-          ports:
-          - containerPort: 8082
+        - name: revhire-user
+          image: CONTAINER_IMAGE
+          env:
+          - name : DB_URL
+            valueFrom: 
+              secretKeyRef:
+                name: db-credentials
+                key: DB_URL
+          - name : DB_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key : DB_USERNAME
+          - name : DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key: DB_PASSWORD
+          - name: DB_PORT
+            valueFrom:
+              secretKeyRef:
+                name: db-credentials
+                key: DB_PORT
