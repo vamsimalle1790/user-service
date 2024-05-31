@@ -16,4 +16,4 @@ spec:
         - name: userservice 
           image: saruku.azurecr.io/userservice
           ports:
-          - containerPort: 8081
+          - containerPort: 8082
