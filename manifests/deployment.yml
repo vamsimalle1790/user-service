@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: vamsimalleuserservice 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vamsimalleuserservice
+  template:
+    metadata:
+      labels:
+        app: vamsimalleuserservice 
+    spec:
+      containers:
+        - name: vamsimalleuserservice 
+          image: saruku.azurecr.io/vamsimalleuserservice
+          ports:
+          - containerPort: 8081
